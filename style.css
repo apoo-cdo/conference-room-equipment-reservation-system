@@ -594,12 +594,11 @@ footer span {
    RESPONSIVE
 =========================== */
 
-/* Hamburger button */
 .hamburger {
     display: none;
     position: fixed;
-    top: 12px;
-    left: 12px;
+    top: 10px;
+    left: 10px;
     z-index: 9998;
     background: #23a645;
     border: none;
@@ -614,7 +613,6 @@ footer span {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Sidebar overlay (dark backdrop) */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -655,19 +653,31 @@ footer span {
         width: 100%;
     }
 
-    /* Header padding for hamburger */
+    /* Header: stack title and user on separate lines */
     .header {
-        padding-left: 60px;
-        font-size: 13px;
+        position: relative;
+        flex-direction: column;
+        height: auto;
+        padding: 10px 16px 10px 60px;
+        font-size: 12px;
         text-align: center;
-        justify-content: center;
+        gap: 2px;
+    }
+
+    /* Username display moves below title */
+    .header span[style] {
+        position: static !important;
+        display: block;
+        font-size: 11px;
+        opacity: 0.9;
     }
 
     /* Footer full width */
     footer {
-        left: 0;
-        width: 100%;
+        left: 0 !important;
+        width: 100% !important;
         font-size: 11px;
+        padding: 8px 10px;
     }
 
     /* Dashboard cards stack */
@@ -675,22 +685,28 @@ footer span {
         grid-template-columns: 1fr;
     }
 
+    /* Content top: stack title and button */
+    .content-top {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 16px 0 16px;
+        gap: 10px;
+    }
+
     /* Tables scroll horizontally */
     .content-body {
         overflow-x: auto;
-        padding: 12px !important;
+        -webkit-overflow-scrolling: touch;
+        padding: 12px 16px !important;
+    }
+
+    .table {
+        min-width: 700px;
     }
 
     /* Modal full width */
     .modal-dialog {
         margin: 10px;
-    }
-
-    /* Content top padding */
-    .content-top {
-        padding: 16px 12px 0 12px;
-        flex-wrap: wrap;
-        gap: 10px;
     }
 
     .page-section {
@@ -699,33 +715,32 @@ footer span {
 
     /* Login box */
     .login-box {
-        width: 90%;
-        padding: 20px 24px 40px 24px;
+        width: 92%;
+        padding: 20px 20px 40px 20px;
     }
 
     .login-header {
         flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 16px;
     }
 
     .login-header h1 {
-        font-size: 18px;
+        font-size: 16px;
         text-align: center;
     }
 
     .login-logo {
-        width: 120px;
-        height: 120px;
-    }
-
-    /* Username in header smaller */
-    #loggedInUser span {
-        font-size: 11px;
+        width: 100px;
+        height: 100px;
     }
 }
 
 @media (max-width: 480px) {
     .header {
         font-size: 11px;
+        padding: 8px 12px 8px 60px;
     }
 
     .card-summary h3 {
@@ -735,5 +750,11 @@ footer span {
     .book-btn {
         font-size: 12px;
         padding: 8px 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .content-top h4 {
+        font-size: 15px;
     }
 }
